@@ -1,25 +1,24 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
 
-const Saludador = ({nombre = "extraño", apellido = ""}) => {
-    /*
-        Equivalente (requiere import de Fragment):
-        <Fragment>
-                <h1>SaludadorApp</h1>
-                <p>Hola {nombre} {apellido}</p>
-        </Fragment>
-    */
+const Saludador = ({nombre = "extraño", anioDeNacimiento}) => {
+    const anioActual = new Date().getFullYear();
     return (
             <>
                 <h1>SaludadorApp</h1>
-                <p>Hola {nombre} {apellido}</p>
+                <p>Hola {nombre}!</p>
+                {   
+                    anioDeNacimiento &&
+                    <p>Tu edad es de {anioActual - anioDeNacimiento} años</p>
+                }
+                
             </>
     );
 }
 
 Saludador.propTypes = {
     nombre: PropTypes.string.isRequired,
-    apellido: PropTypes.string.isRequired
+    anioDeNacimiento: PropTypes.number.isRequired
 }
 
 export default Saludador;
