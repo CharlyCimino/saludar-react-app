@@ -1,7 +1,11 @@
 
 import ReactDOM from 'react-dom';
-import Saludador from './Saludador';
+import SaludadorApp from './SaludadorApp';
 
 const divRoot = document.querySelector("#root");
 
-ReactDOM.render(<Saludador nombre="Carlos" anioDeNacimiento={1993} />, divRoot);
+ReactDOM.render(<SaludadorApp anioDeNacimiento={1993} />, divRoot);
+/*
+    TAREA: Poner un form que pida nombre y año de nacimiento al cliente y al hacer
+    'submit' se muestre el saludador en tiempo real (sin recargar la página)
+*/
