@@ -2,26 +2,13 @@ import React from 'react'
 
 const Formulario = ({persona, setPersona}) => {
 
-    const handleChangeNombre = (event) => {
-        event.preventDefault(); // Evita que se recargue la página al hacer 'submit'
+    const handleChange = (event) => {
+        event.preventDefault(); // Previene el comportamiento por defecto
+        console.log(event);
         setPersona( perActual => {
             return {
-                nombre: event.target.value,
-                fechaNac: perActual.fechaNac
-            }
-        });
-        /*
-            Cuando dependemos del estado anterior, podemos mandar un callback
-            setPersona( estadoAnterior => {...} )
-        */
-    }
-
-    const handleChangeFechaNac = (event) => {
-        event.preventDefault(); // Evita que se recargue la página al hacer 'submit'
-        setPersona( perActual => {
-            return {
-                nombre: perActual.nombre,
-                fechaNac: event.target.value
+                ...perActual,
+                [event.target.name]: event.target.value
             }
         });
     }
@@ -30,12 +17,18 @@ const Formulario = ({persona, setPersona}) => {
         <form>
             <label>
                 Nombre: 
-                <input type="text" value={persona.nombre} onChange={handleChangeNombre}/>
+                <input type="text" 
+                       name="nombre"
+                       value={persona.nombre}
+                       onChange={handleChange}/>
             </label>
             <br/>
             <label>
                 Fecha de nacimiento: 
-                <input type="date" value={persona.fechaNac} onChange={handleChangeFechaNac}/>
+                <input type="date" 
+                       name="fechaNac"
+                       value={persona.fechaNac}
+                       onChange={handleChange}/>
             </label>
             
         </form>
