@@ -1,6 +1,6 @@
 
 import ReactDOM from 'react-dom';
-import SaludadorApp from './SaludadorApp';
+import SaludadorApp from './components/SaludadorApp';
 
 const divRoot = document.querySelector("#root");
 
