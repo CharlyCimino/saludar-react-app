@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import getEdad from '../helpers/calculadoraDeEdad';
 
-const VisorDeEdad = ({anioDeNacimiento}) => {
-    const anioActual = new Date().getFullYear();
-    console.log(anioActual, anioDeNacimiento);
+const VisorDeEdad = ({fechaNac}) => {
+    const dateNac = new Date(fechaNac);
+    
     return (
-        anioDeNacimiento ?
-        <p>Tu edad es de {anioActual - anioDeNacimiento} años</p> :
+        fechaNac ?
+        <p>Tu edad es de {getEdad(dateNac)} años</p> :
         null
     )
 }
 
 VisorDeEdad.propTypes = {
-    anioDeNacimiento: PropTypes.number.isRequired
+    fechaNac: PropTypes.string
 }
 
 export default VisorDeEdad

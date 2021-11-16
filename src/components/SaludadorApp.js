@@ -4,16 +4,19 @@ import Saludador from './Saludador'
 import Formulario from './Formulario'
 
 
-const SaludadorApp = ({anioDeNacimiento}) => {
+const SaludadorApp = () => {
     
-    const [nombre, setNombre] = useState("");
+    const [persona, setPersona] = useState({
+        nombre: "Pepe",
+        fechaNac: ""
+    });
 
     return (
             <>
                 <h1>SaludadorApp</h1>
-                <Formulario nombre={nombre} setNombre={setNombre}/>
-                <Saludador nombre={nombre} />
-                <VisorDeEdad anioDeNacimiento={anioDeNacimiento}/>
+                <Formulario persona={persona} setPersona={setPersona}/>
+                <Saludador nombre={persona.nombre} />
+                <VisorDeEdad fechaNac={persona.fechaNac}/>
             </>
     );
 }

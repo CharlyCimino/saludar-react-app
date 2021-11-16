@@ -7,7 +7,7 @@ const Saludador = ({nombre = "anónimo"}) => {
 }
 
 Saludador.propTypes = {
-    nombre: PropTypes.string.isRequired
+    nombre: PropTypes.string
 }
 
 export default Saludador
