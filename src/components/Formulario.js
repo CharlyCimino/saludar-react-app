@@ -1,8 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-const Formulario = () => {
-
-    const [nombre, setNombre] = useState("");
+const Formulario = ({nombre, setNombre}) => {
 
     const handleChange = (event) => {
         event.preventDefault(); // Evita que se recargue la página al hacer 'submit'
